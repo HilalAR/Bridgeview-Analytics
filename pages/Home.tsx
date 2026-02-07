@@ -223,78 +223,78 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Demo Request Modal - Updated for better visibility and less transparency */}
+      {/* Demo Request Modal - Matches Sectors modal & adjusted positioning */}
       {isDemoModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-lg overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)]">
+        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
             {/* Top accent line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber"></div>
+            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-10 lg:p-14">
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
               <button 
                 onClick={() => setIsDemoModalOpen(false)}
-                className="absolute top-8 right-8 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
+                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
 
               {demoSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-bridgeview-amber/10 border border-bridgeview-amber/20 flex items-center justify-center mx-auto mb-8">
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-bridgeview-amber/10 border border-bridgeview-amber/20 flex items-center justify-center mx-auto mb-6">
                     <Icons.Check />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 uppercase tracking-widest text-white">Aanvraag Ontvangen</h3>
-                  <p className="text-slate-400 font-light text-sm mb-10 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-3 uppercase tracking-widest text-white">Aanvraag Ontvangen</h3>
+                  <p className="text-slate-400 font-light text-xs mb-8 leading-relaxed">
                     Bedankt voor uw interesse in {selectedService}. <br />Wij nemen binnen 24 uur contact met u op voor een afspraak.
                   </p>
                   <button 
                     onClick={() => setIsDemoModalOpen(false)}
-                    className="px-10 py-4 bg-bridgeview-amber text-bridgeview-dark font-bold text-[11px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
                   >
-                    Terug naar website
+                    Sluiten
                   </button>
                 </div>
               ) : (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <h3 className="text-2xl lg:text-3xl font-bold mb-3 uppercase tracking-widest text-white">Demo Sessie Plannen</h3>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-10 border-b border-white/5 pb-6">Service: {selectedService}</p>
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-400">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Demo Sessie Plannen</h3>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-8 border-b border-white/5 pb-4">Service: {selectedService}</p>
                   
-                  <form onSubmit={handleDemoSubmit} className="space-y-8">
-                    <div className="space-y-3">
-                      <label className="text-[10px] uppercase tracking-widest font-black text-slate-400">Volledige Naam</label>
+                  <form onSubmit={handleDemoSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Volledige Naam</label>
                       <input 
                         required 
-                        className="w-full bg-white/[0.03] border border-white/10 px-4 py-4 focus:border-bridgeview-amber focus:bg-white/[0.05] outline-none transition-all text-sm font-light text-white placeholder:text-slate-600" 
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
                         type="text" 
                         placeholder="Uw naam"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] uppercase tracking-widest font-black text-slate-400">Zakelijk E-mailadres</label>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Zakelijk E-mailadres</label>
                       <input 
                         required 
-                        className="w-full bg-white/[0.03] border border-white/10 px-4 py-4 focus:border-bridgeview-amber focus:bg-white/[0.05] outline-none transition-all text-sm font-light text-white placeholder:text-slate-600" 
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
                         type="email" 
                         placeholder="naam@bedrijf.nl"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] uppercase tracking-widest font-black text-slate-400">Telefoonnummer</label>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Telefoonnummer</label>
                       <input 
                         required 
-                        className="w-full bg-white/[0.03] border border-white/10 px-4 py-4 focus:border-bridgeview-amber focus:bg-white/[0.05] outline-none transition-all text-sm font-light text-white placeholder:text-slate-600" 
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
                         type="tel" 
                         placeholder="+31 6 ..."
                       />
                     </div>
-                    <div className="pt-6">
-                      <button className="w-full py-5 bg-bridgeview-amber text-bridgeview-dark font-black text-[12px] uppercase tracking-[0.3em] hover:bg-white transition-all shadow-xl active:scale-[0.98]">
-                        Aanvraag Versturen
+                    <div className="pt-4">
+                      <button className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98]">
+                        Versturen
                       </button>
-                      <p className="text-[9px] text-center mt-6 text-slate-500 font-medium uppercase tracking-widest opacity-60">
-                        Wij gaan zorgvuldig om met uw data.
+                      <p className="text-[8px] text-center mt-5 text-slate-600 font-medium uppercase tracking-widest opacity-60">
+                        Vertrouwelijk en veilig.
                       </p>
                     </div>
                   </form>
