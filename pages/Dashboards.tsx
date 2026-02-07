@@ -303,7 +303,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
 
           {/* New Data Trust, Governance & Compliance Section */}
           <div className="mb-12">
-            <h3 className="text-xl font-bold uppercase tracking-[0.1em] text-white mb-4">Data Trust, Governance & Compliance:</h3>
+            <h3 className="text-xl font-bold uppercase tracking-[0.1em] text-white mb-4">Data Trust, Governance & Compliance</h3>
             <p className="text-slate-400 font-light leading-relaxed max-w-4xl">
               Naast het visualiseren van inzichten, is het borgen van de veiligheid en wettelijke kaders van uw data essentieel voor de continuïteit van uw organisatie.
             </p>

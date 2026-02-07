@@ -22,7 +22,7 @@ const App: React.FC = () => {
     switch (currentPage) {
       case Page.Home: return <Home onNavigate={setCurrentPage} />;
       case Page.Dashboards: return <Dashboards onNavigate={setCurrentPage} />;
-      case Page.Sectors: return <Sectors />;
+      case Page.Sectors: return <Sectors onNavigate={setCurrentPage} />;
       case Page.About: return <About />;
       case Page.Cases: return <Cases />;
       case Page.Contact: return <Contact />;

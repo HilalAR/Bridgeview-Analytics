@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Icons } from '../constants';
+import { Page } from '../types';
 
 interface SectorDetail {
   id: string;
@@ -11,7 +12,11 @@ interface SectorDetail {
   icon: React.ReactNode;
 }
 
-const Sectors: React.FC = () => {
+interface SectorsProps {
+  onNavigate: (page: Page) => void;
+}
+
+const Sectors: React.FC<SectorsProps> = ({ onNavigate }) => {
   const [selectedSector, setSelectedSector] = useState<SectorDetail | null>(null);
 
   const branches: SectorDetail[] = [
@@ -179,7 +184,7 @@ const Sectors: React.FC = () => {
         </div>
       </section>
 
-      {/* Sector Detail Modal - Exact match with Home demo modal & adjusted positioning */}
+      {/* Sector Detail Modal */}
       {selectedSector && (
         <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
           <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
@@ -233,7 +238,7 @@ const Sectors: React.FC = () => {
                    <button 
                     onClick={() => {
                         setSelectedSector(null);
-                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                        onNavigate(Page.Contact);
                     }}
                     className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl"
                    >

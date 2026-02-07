@@ -14,7 +14,7 @@ const About: React.FC = () => {
                 BridgeView Analytics is opgericht vanuit de visie dat technische expertise en bedrijfskundig inzicht onlosmakelijk verbonden moeten zijn. 
               </p>
               <p className="text-base text-slate-300 font-light leading-relaxed mb-10">
-                Onder leiding van Hilal Rahman, Hamza Alsayedali en ons uitgebreide directieteam combineert de organisatie academische diepgang in Business IT & Management met jarenlange hands-on ervaring in de logistieke sector. Wij spreken de taal van zowel de techniek als de bestuurskamer.
+               Data is overal, in elke sector en in elk bedrijf. Maar data op zichzelf zegt nog niets. Wij gebruiken Business Intelligence om van die bergen gegevens waardevolle inzichten te maken. Als jong en gedreven team denken we niet alleen met u mee, we duiken diep in uw processen om te ontdekken waar de kansen liggen. Of u nu in de zorg, vastgoed of logistiek zit: overal is data beschikbaar. Wij zijn er om die data voor u te laten werken, zodat u altijd voorop loopt met een systeem dat klaar is voor de groei van morgen.
               </p>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 mb-10">
