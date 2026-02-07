@@ -1,9 +1,11 @@
+
 // Added React import to solve "Cannot find namespace 'React'" error when using React.ReactNode
 import React from 'react';
 
 export enum Page {
   Home = 'home',
   Services = 'services',
+  Dashboards = 'dashboards',
   Sectors = 'sectors',
   About = 'about',
   Cases = 'cases',
