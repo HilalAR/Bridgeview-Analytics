@@ -84,10 +84,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 Strategisch Consult
               </button>
               <button 
-                onClick={() => onNavigate(Page.Services)}
+                onClick={() => onNavigate(Page.Dashboards)}
                 className="px-10 py-4 border border-white/20 text-white font-bold text-[12px] uppercase tracking-widest hover:bg-white/10 transition-all"
               >
-                Onze Methodologie
+                Onze Oplossingen
               </button>
             </div>
           </div>

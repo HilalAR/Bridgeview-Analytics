@@ -4,7 +4,6 @@ import { Page } from './types';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Services from './pages/Services';
 import Dashboards from './pages/Dashboards';
 import Sectors from './pages/Sectors';
 import About from './pages/About';
@@ -22,7 +21,6 @@ const App: React.FC = () => {
   const renderPage = () => {
     switch (currentPage) {
       case Page.Home: return <Home onNavigate={setCurrentPage} />;
-      case Page.Services: return <Services />;
       case Page.Dashboards: return <Dashboards onNavigate={setCurrentPage} />;
       case Page.Sectors: return <Sectors />;
       case Page.About: return <About />;

@@ -4,7 +4,6 @@ import React from 'react';
 
 export enum Page {
   Home = 'home',
-  Services = 'services',
   Dashboards = 'dashboards',
   Sectors = 'sectors',
   About = 'about',

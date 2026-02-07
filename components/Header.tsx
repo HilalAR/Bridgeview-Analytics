@@ -13,7 +13,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
   const navItems = [
     { name: 'Overzicht', value: Page.Home },
-    { name: 'Expertise', value: Page.Services },
     { name: 'Oplossingen', value: Page.Dashboards },
     { name: 'Sectoren', value: Page.Sectors },
     { name: 'Organisatie', value: Page.About },

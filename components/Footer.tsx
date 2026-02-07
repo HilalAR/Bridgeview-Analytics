@@ -29,7 +29,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h4 className="font-bold mb-10 text-white uppercase tracking-[0.2em] text-[11px]">Navigatie</h4>
             <ul className="space-y-6 text-[12px] uppercase tracking-widest font-semibold text-slate-500">
               <li><button onClick={() => onNavigate(Page.Home)} className="hover:text-bridgeview-amber transition-all">Overzicht</button></li>
-              <li><button onClick={() => onNavigate(Page.Services)} className="hover:text-bridgeview-amber transition-all">Expertise</button></li>
               <li><button onClick={() => onNavigate(Page.Dashboards)} className="hover:text-bridgeview-amber transition-all">Oplossingen</button></li>
               <li><button onClick={() => onNavigate(Page.Sectors)} className="hover:text-bridgeview-amber transition-all">Sectoren</button></li>
               <li><button onClick={() => onNavigate(Page.Cases)} className="hover:text-bridgeview-amber transition-all">Resultaten</button></li>
