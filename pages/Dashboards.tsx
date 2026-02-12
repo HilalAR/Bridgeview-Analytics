@@ -9,6 +9,132 @@ interface DashboardsProps {
 
 const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  
+  // States voor Dashboard Modal
+  const [isDashboardModalOpen, setIsDashboardModalOpen] = useState(false);
+  const [selectedDashboard, setSelectedDashboard] = useState('');
+  const [dashboardFormSubmitted, setDashboardFormSubmitted] = useState(false);
+  const [isDashboardSubmitting, setIsDashboardSubmitting] = useState(false);
+
+  // States voor Core Services Modal (Diensten & Expertise)
+  const [isCoreModalOpen, setIsCoreModalOpen] = useState(false);
+  const [selectedCoreService, setSelectedCoreService] = useState('');
+  const [coreFormSubmitted, setCoreFormSubmitted] = useState(false);
+  const [isCoreSubmitting, setIsCoreSubmitting] = useState(false);
+
+  // States voor Governance Modal
+  const [isGovernanceModalOpen, setIsGovernanceModalOpen] = useState(false);
+  const [selectedGovernanceService, setSelectedGovernanceService] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Dashboard Modal functies
+  const openDashboardModal = (title: string) => {
+    setSelectedDashboard(title);
+    setIsDashboardModalOpen(true);
+    setDashboardFormSubmitted(false);
+    setIsDashboardSubmitting(false);
+  };
+
+  const handleDashboardSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsDashboardSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc0bRh7olBiLLxyPPXqrPNCdi6nSFK34ws5s-BUjOmaoDU7gg/formResponse";
+
+    const data = new URLSearchParams();
+    data.append('entry.1344690569', selectedDashboard); 
+    data.append('entry.2147357087', formData.get('naam') as string); 
+    data.append('entry.1250109506', formData.get('email') as string); 
+    data.append('entry.1077654435', formData.get('telefoon') as string); 
+
+    try {
+      await fetch(googleFormUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+      setDashboardFormSubmitted(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+      setDashboardFormSubmitted(true);
+    } finally {
+      setIsDashboardSubmitting(false);
+    }
+  };
+
+  // Core Services Modal functies
+  const openCoreModal = (title: string) => {
+    setSelectedCoreService(title);
+    setIsCoreModalOpen(true);
+    setCoreFormSubmitted(false);
+    setIsCoreSubmitting(false);
+  };
+
+  const handleCoreSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsCoreSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc7P59PJqbAlnGfGBxGy1aA8JZ8IxzdxsN24aGYu3X2MbLp5Q/formResponse";
+
+    const data = new URLSearchParams();
+    data.append('entry.2098835058', selectedCoreService); // Keuze
+    data.append('entry.345536169', formData.get('naam') as string); // Naam
+    data.append('entry.428908901', formData.get('email') as string); // Email
+    data.append('entry.425508424', formData.get('telefoon') as string); // Telefoon nummer
+
+    try {
+      await fetch(googleFormUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+      setCoreFormSubmitted(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+      setCoreFormSubmitted(true);
+    } finally {
+      setIsCoreSubmitting(false);
+    }
+  };
+
+  // Governance Modal functies
+  const openGovernanceModal = (serviceTitle: string) => {
+    setSelectedGovernanceService(serviceTitle);
+    setIsGovernanceModalOpen(true);
+    setFormSubmitted(false);
+    setIsSubmitting(false);
+  };
+
+  const handleGovernanceSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdEgd0qw7RFSn_sM-Z99vSDR0x9E63OFZec7uYZxjWA3XHS4A/formResponse";
+
+    const data = new URLSearchParams();
+    data.append('entry.1757941444', selectedGovernanceService);
+    data.append('entry.609045959', formData.get('naam') as string);
+    data.append('entry.436107509', formData.get('email') as string);
+    data.append('entry.74225432', formData.get('telefoon') as string);
+
+    try {
+      await fetch(googleFormUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+      setFormSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const dashboardList = [
     {
@@ -140,7 +266,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
       desc: "Garandeer de betrouwbaarheid van uw managementrapportages met een diepgaande kwaliteitsanalyse.",
       details: [
         "Besluitvorming op basis van vervuilde data ('Garbage in, Garbage out') leidt tot kostbare strategische missers.",
-        "Wij sporen dubbele records, ontbrekende waarden en foutieve bronkoppelingen op.",
+        "Wij sporen dubbele records, ontbrekende waarden and foutieve bronkoppelingen op.",
         "Zorg voor een 'Single Source of Truth' waar de gehele organisatie op durft te vertrouwen."
       ],
       icon: <Icons.Data />
@@ -150,7 +276,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
       title: "Informatiebeveiligings-scan",
       desc: "Bescherm uw bedrijfsgeheimen en klantdata tegen ongeautoriseerde toegang en cyberrisico's.",
       details: [
-        "Een datalek zorgt voor onherstelbare reputatieschade en verlies van marktvertrouwen.",
+        "Een datalek zorgt for onherstelbare reputatieschade en verlies van marktvertrouwen.",
         "Toetsing van uw BI-omgeving aan de strengste kaders (ISO 27001 / NEN 7510).",
         "Beveiliging van de cloud-architectuur (Azure) en toegangsbeheer op dashboard-niveau."
       ],
@@ -215,21 +341,22 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                <div className="pt-8 mt-10 border-t border-white/5 flex justify-between items-center">
-                  <button 
-                    onClick={() => onNavigate(Page.Contact)}
-                    className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-white/80 hover:text-bridgeview-amber transition-all group/btn"
-                  >
-                    <span className="w-1.5 h-1.5 bg-bridgeview-amber rounded-full animate-pulse"></span>
-                    Plan een gesprek
-                  </button>
-                  
-                  <button 
-                    onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
-                    className="text-[11px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
-                  >
-                    {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
-                  </button>
+                <div className="pt-8 mt-10 border-t border-white/5 flex flex-col gap-6">
+                  <div className="flex justify-between items-center">
+                    <button 
+                      onClick={() => openDashboardModal(item.title)}
+                      className="w-full sm:w-auto px-6 py-3 bg-white/5 border border-white/10 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-bridgeview-amber hover:text-bridgeview-dark hover:border-bridgeview-amber transition-all"
+                    >
+                      Plan een gesprek
+                    </button>
+                    
+                    <button 
+                      onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
+                      className="text-[11px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
+                    >
+                      {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -281,27 +408,28 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                <div className="pt-8 mt-10 border-t border-white/5 flex justify-between items-center">
-                  <button 
-                    onClick={() => onNavigate(Page.Contact)}
-                    className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-white/80 hover:text-bridgeview-amber transition-all group/btn"
-                  >
-                    <span className="w-1.5 h-1.5 bg-bridgeview-amber rounded-full animate-pulse"></span>
-                    Plan een gesprek
-                  </button>
-                  
-                  <button 
-                    onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
-                    className="text-[11px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
-                  >
-                    {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
-                  </button>
+                <div className="pt-8 mt-10 border-t border-white/5 flex flex-col gap-6">
+                  <div className="flex justify-between items-center">
+                    <button 
+                      onClick={() => openCoreModal(item.title)}
+                      className="w-full sm:w-auto px-6 py-3 bg-white/5 border border-white/10 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-bridgeview-amber hover:text-bridgeview-dark hover:border-bridgeview-amber transition-all"
+                    >
+                      Plan een gesprek
+                    </button>
+                    
+                    <button 
+                      onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
+                      className="text-[11px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
+                    >
+                      {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* New Data Trust, Governance & Compliance Section */}
+          {/* Data Trust, Governance & Compliance Section */}
           <div className="mb-12">
             <h3 className="text-xl font-bold uppercase tracking-[0.1em] text-white mb-4">Data Trust, Governance & Compliance</h3>
             <p className="text-slate-400 font-light leading-relaxed max-w-4xl">
@@ -345,20 +473,21 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-white/5 flex justify-between items-center">
-                  <button 
-                    onClick={() => onNavigate(Page.Contact)}
-                    className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-white/80 hover:text-bridgeview-amber transition-all group/btn"
-                  >
-                    <span className="w-1.5 h-1.5 bg-bridgeview-amber rounded-full animate-pulse"></span>
-                    Plan een gesprek
-                  </button>
-                  <button 
-                    onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
-                    className="text-[10px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
-                  >
-                    {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
-                  </button>
+                <div className="pt-6 mt-6 border-t border-white/5 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <button 
+                      onClick={() => openGovernanceModal(item.title)}
+                      className="w-full sm:w-auto px-6 py-2 bg-white/5 border border-white/10 text-white font-bold text-[9px] uppercase tracking-widest hover:bg-bridgeview-amber hover:text-bridgeview-dark hover:border-bridgeview-amber transition-all"
+                    >
+                      Plan een gesprek
+                    </button>
+                    <button 
+                      onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
+                      className="text-[10px] uppercase tracking-[0.2em] font-bold text-bridgeview-amber hover:text-white transition-all transform hover:translate-x-1"
+                    >
+                      {expandedId === item.id ? 'Inklappen' : 'Lees meer'}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -366,34 +495,318 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Quality Guarantees */}
-      <section className="py-16 bg-black/40">
-        <div className="container mx-auto px-8">
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-              <div className="flex gap-6 items-start">
-                 <div className="text-bridgeview-amber font-bold text-2xl opacity-50">01</div>
-                 <div>
-                    <h4 className="font-bold text-white uppercase tracking-widest text-sm mb-2">Realtime Sync</h4>
-                    <p className="text-xs text-slate-500 font-light">Uw dashboards zijn direct gekoppeld aan de bron.</p>
-                 </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                 <div className="text-bridgeview-amber font-bold text-2xl opacity-50">02</div>
-                 <div>
-                    <h4 className="font-bold text-white uppercase tracking-widest text-sm mb-2">Mobile Ready</h4>
-                    <p className="text-xs text-slate-500 font-light">Inzichten op uw smartphone, tablet of desktop.</p>
-                 </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                 <div className="text-bridgeview-amber font-bold text-2xl opacity-50">03</div>
-                 <div>
-                    <h4 className="font-bold text-white uppercase tracking-widest text-sm mb-2">Compliance & Privacy</h4>
-                    <p className="text-xs text-slate-500 font-light">Volledig ingericht volgens de AVG-richtlijnen en DPIA-standaarden.</p>
-                 </div>
-              </div>
-           </div>
+      {/* Dashboard Oplossingen Modal */}
+      {isDashboardModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+            
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+              <button 
+                onClick={() => setIsDashboardModalOpen(false)}
+                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {dashboardFormSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-bridgeview-amber/10 border border-bridgeview-amber/20 flex items-center justify-center mx-auto mb-6">
+                    <Icons.Check />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 uppercase tracking-widest text-white">Aanvraag Ontvangen</h3>
+                  <p className="text-slate-400 font-light text-xs mb-8 leading-relaxed">
+                    Bedankt voor uw interesse in {selectedDashboard}. <br />Wij nemen binnen 24 uur contact met u op.
+                  </p>
+                  <button 
+                    onClick={() => setIsDashboardModalOpen(false)}
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                  >
+                    Sluiten
+                  </button>
+                </div>
+              ) : (
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-400">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Gesprek Inplannen</h3>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-8 border-b border-white/5 pb-4">Oplossing: Dashboarding</p>
+                  
+                  <form onSubmit={handleDashboardSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Gekozen Dashboard</label>
+                      <select 
+                        required
+                        name="dashboard_type"
+                        value={selectedDashboard}
+                        onChange={(e) => setSelectedDashboard(e.target.value)}
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white appearance-none cursor-pointer"
+                      >
+                        {dashboardList.map(dash => (
+                          <option key={dash.id} value={dash.title} className="bg-[#0B222E]">
+                            {dash.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Volledige Naam</label>
+                      <input 
+                        required 
+                        name="naam"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="text" 
+                        placeholder="Uw naam"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Zakelijk E-mailadres</label>
+                      <input 
+                        required 
+                        name="email"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="email" 
+                        placeholder="naam@bedrijf.nl"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Telefoonnummer</label>
+                      <input 
+                        required 
+                        name="telefoon"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="tel" 
+                        placeholder="+31 6 ..."
+                      />
+                    </div>
+                    <div className="pt-4">
+                      <button 
+                        disabled={isDashboardSubmitting}
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                      >
+                        {isDashboardSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
+                      </button>
+                      <p className="text-[8px] text-center mt-5 text-slate-600 font-medium uppercase tracking-widest opacity-60">
+                        Vrijblijvend advies op maat.
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </section>
+      )}
+
+      {/* Core Services (Diensten & Expertise) Modal */}
+      {isCoreModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+            
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+              <button 
+                onClick={() => setIsCoreModalOpen(false)}
+                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {coreFormSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-bridgeview-amber/10 border border-bridgeview-amber/20 flex items-center justify-center mx-auto mb-6">
+                    <Icons.Check />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 uppercase tracking-widest text-white">Aanvraag Ontvangen</h3>
+                  <p className="text-slate-400 font-light text-xs mb-8 leading-relaxed">
+                    Bedankt voor uw interesse in {selectedCoreService}. <br />Wij nemen binnen 24 uur contact met u op.
+                  </p>
+                  <button 
+                    onClick={() => setIsCoreModalOpen(false)}
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                  >
+                    Sluiten
+                  </button>
+                </div>
+              ) : (
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-400">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Dienst Aanvragen</h3>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-8 border-b border-white/5 pb-4">Sectie: Diensten & Expertise</p>
+                  
+                  <form onSubmit={handleCoreSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Gekozen Dienst</label>
+                      <select 
+                        required
+                        name="service_type"
+                        value={selectedCoreService}
+                        onChange={(e) => setSelectedCoreService(e.target.value)}
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white appearance-none cursor-pointer"
+                      >
+                        {coreServices.map(service => (
+                          <option key={service.id} value={service.title} className="bg-[#0B222E]">
+                            {service.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Volledige Naam</label>
+                      <input 
+                        required 
+                        name="naam"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="text" 
+                        placeholder="Uw naam"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Zakelijk E-mailadres</label>
+                      <input 
+                        required 
+                        name="email"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="email" 
+                        placeholder="naam@bedrijf.nl"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Telefoonnummer</label>
+                      <input 
+                        required 
+                        name="telefoon"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="tel" 
+                        placeholder="+31 6 ..."
+                      />
+                    </div>
+                    <div className="pt-4">
+                      <button 
+                        disabled={isCoreSubmitting}
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                      >
+                        {isCoreSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
+                      </button>
+                      <p className="text-[8px] text-center mt-5 text-slate-600 font-medium uppercase tracking-widest opacity-60">
+                        Expertise op maat voor uw organisatie.
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Governance Contact Modal */}
+      {isGovernanceModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+            
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+              <button 
+                onClick={() => setIsGovernanceModalOpen(false)}
+                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {formSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-bridgeview-amber/10 border border-bridgeview-amber/20 flex items-center justify-center mx-auto mb-6">
+                    <Icons.Check />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 uppercase tracking-widest text-white">Aanvraag Ontvangen</h3>
+                  <p className="text-slate-400 font-light text-xs mb-8 leading-relaxed">
+                    Bedankt voor uw aanvraag voor de {selectedGovernanceService}. <br />Wij nemen binnen 24 uur contact met u op.
+                  </p>
+                  <button 
+                    onClick={() => setIsGovernanceModalOpen(false)}
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                  >
+                    Sluiten
+                  </button>
+                </div>
+              ) : (
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-400">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Consult Inplannen</h3>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-8 border-b border-white/5 pb-4">Focus: Governance & Compliance</p>
+                  
+                  <form onSubmit={handleGovernanceSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Type Assessment / Audit</label>
+                      <select 
+                        required
+                        name="dienst"
+                        value={selectedGovernanceService}
+                        onChange={(e) => setSelectedGovernanceService(e.target.value)}
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled className="bg-[#0B222E]">Selecteer een dienst</option>
+                        {governanceServices.map(service => (
+                          <option key={service.id} value={service.title} className="bg-[#0B222E]">
+                            {service.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Volledige Naam</label>
+                      <input 
+                        required 
+                        name="naam"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="text" 
+                        placeholder="Uw naam"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Zakelijk E-mailadres</label>
+                      <input 
+                        required 
+                        name="email"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="email" 
+                        placeholder="naam@bedrijf.nl"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] uppercase tracking-widest font-black text-slate-400">Telefoonnummer</label>
+                      <input 
+                        required 
+                        name="telefoon"
+                        className="w-full bg-white/[0.02] border border-white/10 px-4 py-3.5 focus:border-bridgeview-amber focus:bg-white/[0.04] outline-none transition-all text-xs font-light text-white placeholder:text-slate-600" 
+                        type="tel" 
+                        placeholder="+31 6 ..."
+                      />
+                    </div>
+                    <div className="pt-4">
+                      <button 
+                        disabled={isSubmitting}
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                      >
+                        {isSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
+                      </button>
+                      <p className="text-[8px] text-center mt-5 text-slate-600 font-medium uppercase tracking-widest opacity-60">
+                        Vertrouwelijk en veilig conform AVG.
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

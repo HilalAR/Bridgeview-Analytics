@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             onClick={() => onNavigate(Page.Contact)}
             className="border border-bridgeview-amber text-bridgeview-amber px-6 py-2.5 rounded-none text-[11px] uppercase tracking-widest font-bold hover:bg-bridgeview-amber hover:text-bridgeview-dark transition-all"
           >
-            Consultatie
+            Contact
           </button>
         </nav>
 
@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             }}
             className="border border-bridgeview-amber text-bridgeview-amber px-6 py-4 text-center text-[10px] uppercase tracking-widest font-bold"
           >
-            Consultatie Aanvragen
+            Contact
           </button>
         </div>
       )}

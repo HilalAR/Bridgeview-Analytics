@@ -1,5 +1,4 @@
 
-// Added React import to solve "Cannot find namespace 'React'" error when using React.ReactNode
 import React from 'react';
 
 export enum Page {

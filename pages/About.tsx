@@ -14,23 +14,8 @@ const About: React.FC = () => {
                 BridgeView Analytics is opgericht vanuit de visie dat technische expertise en bedrijfskundig inzicht onlosmakelijk verbonden moeten zijn. 
               </p>
               <p className="text-base text-slate-300 font-light leading-relaxed mb-10">
-               Data is overal, in elke sector en in elk bedrijf. Maar data op zichzelf zegt nog niets. Wij gebruiken Business Intelligence om van die bergen gegevens waardevolle inzichten te maken. Als jong en gedreven team denken we niet alleen met u mee, we duiken diep in uw processen om te ontdekken waar de kansen liggen. Of u nu in de zorg, vastgoed of logistiek zit: overal is data beschikbaar. Wij zijn er om die data voor u te laten werken, zodat u altijd voorop loopt met een systeem dat klaar is voor de groei van morgen.
+                Wij zijn een jong, ambitieus team dat altijd proactief meedenkt over de toekomst van uw organisatie. Onze passie ligt in het vereenvoudigen van complexe vraagstukken door de inzet van slimme technologie. Wij geloven dat een goede data-architectuur niet alleen vandaag moet werken, maar moet meegroeien met uw ambities van morgen. Als gedreven partner trekken wij samen met u op en streven we altijd naar de meest efficiënte oplossing voor uw unieke situatie.
               </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 mb-10">
-                <div className="sharp-card p-6 bg-white/5 border-none">
-                  <h4 className="font-bold text-bridgeview-amber text-xl mb-1">100%</h4>
-                  <p className="text-[9px] uppercase tracking-widest font-bold text-slate-500">Gebruikersadoptie</p>
-                </div>
-                <div className="sharp-card p-6 bg-white/5 border-none">
-                  <h4 className="font-bold text-bridgeview-amber text-xl mb-1">AVG</h4>
-                  <p className="text-[9px] uppercase tracking-widest font-bold text-slate-500">Volledig Compliant</p>
-                </div>
-                <div className="sharp-card p-6 bg-white/5 border-none hidden sm:block">
-                  <h4 className="font-bold text-bridgeview-amber text-xl mb-1">MKB+</h4>
-                  <p className="text-[9px] uppercase tracking-widest font-bold text-slate-500">Sector Focus</p>
-                </div>
-              </div>
             </div>
             
             {/* Directie Profielen - Nu met 3 personen */}
@@ -38,10 +23,15 @@ const About: React.FC = () => {
               {/* Hilal Rahman */}
               <div className="flex flex-col">
                 <div className="relative aspect-[3/4] overflow-hidden group bg-slate-900">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/5">
+                    <svg className="w-12 h-12 text-white/10" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                  </div>
                   <img 
-                    src="https://i.imgur.com/T6E3Br4.jpeg" 
+                    src="https://lh3.googleusercontent.com/d/1wzFo5K7yUCLuKNUcAa0X-z3F-wO5Hx7x" 
                     alt="Hilal Rahman" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="relative z-10 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100"
                     loading="eager"
                   />
                 </div>
@@ -57,10 +47,15 @@ const About: React.FC = () => {
               {/* Hamza Alsayedali */}
               <div className="flex flex-col">
                 <div className="relative aspect-[3/4] overflow-hidden group bg-slate-900">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/5">
+                    <svg className="w-12 h-12 text-white/10" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                  </div>
                   <img 
-                    src="https://i.imgur.com/7jGHjml.jpeg" 
+                    src="https://lh3.googleusercontent.com/d/1dR67EBTCtcEnjcuGEoivBbF7hfNlSo98" 
                     alt="Hamza Alsayedali" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="relative z-10 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100"
                     loading="eager"
                   />
                 </div>
@@ -69,11 +64,11 @@ const About: React.FC = () => {
                   <p className="text-bridgeview-amber text-[9px] uppercase tracking-[0.3em] font-black">Data Engineer</p>
                 </div>
                 <p className="mt-3 text-[11px] text-slate-500 font-light leading-relaxed">
-                  Gespecialiseerd in het ontwerpen van toekomstbestendige datastructuren die versnipperde bronnen verenigen tot een betrouwbaar fundament voor accurate KPI-rapportages.
+                  Gespecialiseerd in het ontwerpen van toekomstbestendige datastructuren die versnipperde bronnen verenigen tot een betrouwbaar fundament for accurate KPI-rapportages.
                 </p>
               </div>
 
-              {/* Derde Persoon - Placeholder / Nieuw Teamlid */}
+              {/* Derde Persoon - Gytha Baha */}
               <div className="flex flex-col">
                 <div className="relative aspect-[3/4] overflow-hidden group bg-slate-900">
                   <div className="absolute inset-0 flex items-center justify-center bg-white/5">
@@ -82,9 +77,9 @@ const About: React.FC = () => {
                     </svg>
                   </div>
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Operationeel Directeur" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity hover:mix-blend-normal"
+                    src="https://lh3.googleusercontent.com/d/1uKu0Y22yAc2W2OksZ0YQyI7EogT3aA4g" 
+                    alt="Gytha Baha" 
+                    className="relative z-10 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100"
                     loading="lazy"
                   />
                 </div>

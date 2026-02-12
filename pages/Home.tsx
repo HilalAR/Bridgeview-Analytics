@@ -31,24 +31,24 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       title: 'Power BI Dashboards',
       intro: 'Ontwikkeld door de experts van BridgeView Analytics. Verliest uw organisatie kostbare tijd aan het handmatig samenstellen van rapportages uit uiteenlopende databronnen?',
       moreTitle: 'Automatisering en Betrouwbaarheid',
-      moreContent: 'BridgeView Analytics biedt de definitieve oplossing. Met een op maat gemaakt Power BI Dashboard automatiseren wij deze tijdrovende processen, waardoor u direct ruimte creëert voor analyse en strategie in plaats van data-verwerking. Een Power BI Dashboard van BridgeView Analytics zorgt ervoor dat u niet langer afhankelijk bent van handmatige dataverzameling. Uw gegevens uit verschillende bronnen worden automatisch ververst en samengevoegd tot één helder overzicht. Dit minimaliseert de kans op menselijke fouten aanzienlijk en garandeert dat u beslissingen neemt op basis van een \'Single Source of Truth\'. Wij slaan de brug tussen uw ruwe data en feitelijk onderbouwde besluitvorming.',
+      moreContent: 'BridgeView Analytics biedt de definitieve oplossing. Met een op maat gemaakt Power BI Dashboard automatiseren wij deze tijdrovende processen, waardoor u direct ruimte creëert voor analyse en strategie in plaats van data-verwerking. Een Power BI Dashboard van BridgeView Analytics zorgt ervoor dat u niet langer afhankelijk bent van handmatige dataverzameling. Uw gegevens uit verschillende bronnen worden automatisch ververst and samengevoegd tot één helder overzicht. Dit minimaliseert de kans op menselijke fouten aanzienlijk en garandeert dat u beslissingen neemt op basis van een \'Single Source of Truth\'. Wij slaan de brug tussen uw ruwe data en feitelijk onderbouwde besluitvorming.',
       extra: 'Inzichten die perfect aansluiten: Met onze diepgaande ervaring ontwikkelen wij overzichtelijke Power BI dashboards die naadloos aansluiten bij de specifieke behoeften van uw organisatie. Wij zorgen ervoor dat u precies die inzichten krijgt die nodig zijn om uw rendement te verhogen en uw processen te optimaliseren.'
     },
     {
-      id: 'kpi-dashboards',
-      title: 'KPI Dashboards',
-      intro: 'Bent u op zoek naar een partner die uw bedrijfsdoelstellingen vertaalt naar meetbaar resultaat?',
-      moreTitle: 'Expertise in Datagestuurde Sturing',
-      moreContent: 'BridgeView Analytics is gespecialiseerd in het ontwerpen en implementeren van hoogwaardige KPI-dashboards. Wij geloven dat data pas waarde krijgt wanneer het aanzet tot actie. Daarom bieden wij gespecialiseerde oplossingen voor elke laag van uw organisatie, variërend van strategische CFO- en Management Dashboards tot operationele inzichten via Sales, HR, Marketing en Finance Dashboards.',
-      extra: 'Onze ervaren professionals slaan de brug tussen uw visie en de techniek. Wij helpen u niet alleen bij het technisch opzetten van deze dashboards, maar adviseren u ook bij het identificeren van de juiste Critical Success Factors (CSF\'s) en het ontsluiten van de benodigde data. Met een Business Intelligence Dashboard van BridgeView Analytics transformeert u complexe datastromen naar een helder kompas voor uw dagelijkse bedrijfsvoering.'
+      id: 'datawarehouse',
+      title: 'Datawarehouse',
+      intro: 'Alle data van uw organisatie veilig en consistent ondergebracht in één krachtig systeem.',
+      moreTitle: 'Centrale Bron van Waarheid',
+      moreContent: 'Een datawarehouse van BridgeView Analytics vormt de ruggengraat van uw informatievoorziening. Wij koppelen versnipperde databronnen uit ERP-systemen, webshops en financiële pakketten naar één gecentraliseerde \'Single Source of Truth\'. Dit elimineert handmatige fouten en zorgt for een schaalbaar fundament.',
+      extra: 'Door data te consolideren, creëert u een robuust overzicht dat onafhankelijk is van individuele bronsystemen, waardoor u sneller kunt schalen en diepere cross-sectionele analyses kunt uitvoeren.'
     },
     {
-      id: 'bi-consultancy',
-      title: 'BI Consultancy',
-      intro: 'Bent u op zoek naar gespecialiseerde BI-consultants die uw organisatie kunnen ondersteunen bij complexe data-uitdagingen?',
-      moreTitle: 'Flexibele Ondersteuning op Maat',
-      moreContent: 'BridgeView Analytics beschikt over een team van hoogwaardige professionals die de technische diepgang en het bedrijfskundig inzicht combineren om uw projecten tot een succes te maken. Of u nu behoefte heeft aan expertise voor een specifiek kortlopend project of aan langdurige ondersteuning binnen uw team: onze consultants staan voor u klaar.',
-      extra: 'Grip op Resultaat en Efficiency: Wij werken zowel remote als bij u op locatie (inhouse), naadloos geïntegreerd met uw eigen organisatie. Onze consultants zijn experts in het volledige spectrum van Business Intelligence, Data Warehouse Architectuur en Power BI Consultancy. Wij slaan de brug tussen uw huidige data-infrastructuur en de gewenste informatiebehoefte. Vertel ons meer over uw specifieke uitdaging; wij kijken graag hoe onze consultants uw organisatie direct kunnen versterken.'
+      id: 'dpia',
+      title: 'DPIA (Data Protection Impact Assessment)',
+      intro: 'Een DPIA is wettelijk verplicht voor organisaties die op grote schaal persoonsgegevens verwerken.',
+      moreTitle: 'Wettelijke Kaders & Risicobeheer',
+      moreContent: 'Bij de implementatie van nieuwe datasystemen of het herzien van processen is een DPIA cruciaal. Wij helpen u bij het identificeren van privacyrisico\'s en het borgen van "Privacy by Design" binnen uw data-architectuur.',
+      extra: 'Voorkom boetes en reputatieschade: Onze experts zorgen voor een grondige analyse conform de AVG-richtlijnen, zodat u met een gerust hart kunt schalen en innoveren.'
     }
   ];
 
@@ -73,7 +73,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </h1>
             
             <p className="text-base text-slate-400 leading-relaxed max-w-2xl mb-12 font-light">
-              BridgeView Analytics adviseert MKB+ ondernemingen in de logistiek en e-commerce bij het optimaliseren van bedrijfsprocessen. Wij transformeren complexe datastromen naar meetbare winstgevendheid and operationele controle.
+              Behaal zakelijke doelen sneller en efficiënter door datagedreven te werken. Wij zijn een jong en gedreven team dat complexe datastromen vertaalt naar een heldere koers.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
@@ -81,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate(Page.Contact)}
                 className="px-10 py-4 bg-bridgeview-amber text-bridgeview-dark font-bold text-[12px] uppercase tracking-widest hover:bg-white transition-all shadow-xl"
               >
-                Strategisch Consult
+                Gesprek plannen
               </button>
               <button 
                 onClick={() => onNavigate(Page.Dashboards)}
@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <div>
                   <div className="flex items-center gap-5 mb-8">
                     <div className="w-12 h-12 flex items-center justify-center border border-bridgeview-amber/20 bg-bridgeview-amber/5 text-bridgeview-amber">
-                      {item.id === 'power-bi' ? <Icons.Data /> : item.id === 'kpi-dashboards' ? <Icons.Strategy /> : <Icons.Check />}
+                      {item.id === 'power-bi' ? <Icons.Data /> : item.id === 'datawarehouse' ? <Icons.Data /> : <Icons.Check />}
                     </div>
                     <h3 className="text-lg font-bold uppercase tracking-widest text-white leading-tight">
                       {item.title}
@@ -214,7 +214,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     onClick={() => openDemoModal(item.title)}
                     className="w-full sm:w-auto px-6 py-3 bg-white/5 border border-white/10 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-bridgeview-amber hover:text-bridgeview-dark hover:border-bridgeview-amber transition-all"
                   >
-                    Plan een demo-sessie
+                    {item.id === 'power-bi' ? 'Plan een demo-sessie' : 'Plan een gesprek'}
                   </button>
                 </div>
               </div>
@@ -258,7 +258,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 </div>
               ) : (
                 <div className="animate-in fade-in slide-in-from-bottom-2 duration-400">
-                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Demo Sessie Plannen</h3>
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 uppercase tracking-widest text-white">Gesprek Inplannen</h3>
                   <p className="text-[9px] uppercase tracking-[0.2em] text-bridgeview-amber font-bold mb-8 border-b border-white/5 pb-4">Service: {selectedService}</p>
                   
                   <form onSubmit={handleDemoSubmit} className="space-y-6">
