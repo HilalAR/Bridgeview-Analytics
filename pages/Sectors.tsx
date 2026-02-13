@@ -184,14 +184,14 @@ const Sectors: React.FC<SectorsProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Sector Detail Modal */}
+      {/* Sector Detail Modal - Enhanced opacity and z-index */}
       {selectedSector && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
             {/* Top accent line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
               <button 
                 onClick={() => setSelectedSector(null)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"

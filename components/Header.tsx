@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { LOGO, COLORS } from '../constants';
@@ -20,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-bridgeview-dark border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-30 bg-bridgeview-dark border-b border-white/5">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <button 
           onClick={() => onNavigate(Page.Home)}

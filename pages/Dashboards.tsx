@@ -80,10 +80,10 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
     const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc7P59PJqbAlnGfGBxGy1aA8JZ8IxzdxsN24aGYu3X2MbLp5Q/formResponse";
 
     const data = new URLSearchParams();
-    data.append('entry.2098835058', selectedCoreService); // Keuze
-    data.append('entry.345536169', formData.get('naam') as string); // Naam
-    data.append('entry.428908901', formData.get('email') as string); // Email
-    data.append('entry.425508424', formData.get('telefoon') as string); // Telefoon nummer
+    data.append('entry.2098835058', selectedCoreService); 
+    data.append('entry.345536169', formData.get('naam') as string); 
+    data.append('entry.428908901', formData.get('email') as string); 
+    data.append('entry.425508424', formData.get('telefoon') as string); 
 
     try {
       await fetch(googleFormUrl, {
@@ -495,13 +495,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Dashboard Oplossingen Modal */}
+      {/* Dashboard Oplossingen Modal - Enhanced opacity and z-index */}
       {isDashboardModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
               <button 
                 onClick={() => setIsDashboardModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -599,13 +599,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* Core Services (Diensten & Expertise) Modal */}
+      {/* Core Services (Diensten & Expertise) Modal - Enhanced opacity and z-index */}
       {isCoreModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
               <button 
                 onClick={() => setIsCoreModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -703,13 +703,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* Governance Contact Modal */}
+      {/* Governance Contact Modal - Enhanced opacity and z-index */}
       {isGovernanceModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12">
+            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
               <button 
                 onClick={() => setIsGovernanceModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"

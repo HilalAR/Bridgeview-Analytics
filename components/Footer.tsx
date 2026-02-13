@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { LOGO, COLORS, Icons } from '../constants';
@@ -14,16 +13,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const [isCookiesOpen, setIsCookiesOpen] = useState(false);
   
   return (
-    <footer className="bg-black/40 py-12 lg:py-16 border-t border-white/5 line-grid relative">
+    <footer className="bg-[#0B222E] py-12 lg:py-16 border-t border-white/5">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-12">
           
           {/* Kolom 1: De Kern */}
           <div className="flex flex-col">
             <div className="flex items-center gap-4 mb-6">
-              <div className="scale-75 origin-left">
-                {LOGO}
-              </div>
               <div className="flex items-center gap-1 font-semibold text-lg tracking-tight">
                 <span style={{ color: COLORS.accent }}>BridgeView</span>
                 <span style={{ color: COLORS.secondary }}>Analytics</span>
@@ -150,9 +146,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       {/* Privacy Policy Modal */}
       {isPrivacyOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[85vh] overflow-y-auto">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+        <div className="fixed inset-0 z-[9999] isolation isolate flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[85vh] overflow-y-auto bg-[#0B222E]">
             
             <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 text-left">
               <button 
@@ -256,9 +251,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       {/* Terms & Conditions Modal */}
       {isTermsOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[85vh] overflow-y-auto">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+        <div className="fixed inset-0 z-[9999] isolation isolate flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[85vh] overflow-y-auto bg-[#0B222E]">
             
             <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 text-left">
               <button 
@@ -352,9 +346,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       {/* Cookie Policy Modal */}
       {isCookiesOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/80 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.2)] max-h-[85vh] overflow-y-auto">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
+        <div className="fixed inset-0 z-[9999] isolation isolate flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[85vh] overflow-y-auto bg-[#0B222E]">
             
             <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 text-left">
               <button 
@@ -372,7 +365,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 
                 <div className="space-y-8 text-slate-400 font-light text-sm leading-relaxed">
                   <p>
-                    BridgeView Analytics maakt op deze website gebruik van cookies. Een cookie is een eenvoudig klein bestandje dat met pagina’s van deze website wordt meegestuurd en door uw browser op uw harde schijf van uw computer wordt opgeslagen.
+                    BridgeView Analytics maakt op deze website gebruik van cookies. Een cookie is een eenvoudig klein bestandje dat met pagina's van deze website wordt meegestuurd en door uw browser op uw harde schijf van uw computer wordt opgeslagen.
                   </p>
 
                   <section className="space-y-3">
