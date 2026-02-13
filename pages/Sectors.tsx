@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Icons } from '../constants';
 import { Page } from '../types';
@@ -159,7 +158,7 @@ const Sectors: React.FC<SectorsProps> = ({ onNavigate }) => {
               <div 
                 key={branch.id}
                 onClick={() => setSelectedSector(branch)}
-                className="sharp-card p-8 bg-white/[0.02] flex items-center justify-between group transition-all duration-300 hover:bg-white/[0.05] hover:border-bridgeview-amber/30 hover:shadow-[0_0_20px_rgba(197,160,89,0.05)] cursor-pointer"
+                className="sharp-card p-8 bg-white/[0.02] flex items-center justify-between group transition-all duration-300 hover:bg-white/[0.05] hover:border-bridgeview-amber/30 cursor-pointer"
               >
                 <div className="flex items-center gap-6">
                   <div className="w-10 h-10 flex items-center justify-center border border-bridgeview-amber/10 bg-bridgeview-amber/5 text-bridgeview-amber transition-colors group-hover:bg-bridgeview-amber group-hover:text-bridgeview-dark">
@@ -184,14 +183,14 @@ const Sectors: React.FC<SectorsProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Sector Detail Modal - Enhanced opacity and z-index */}
+      {/* Sector Detail Modal - Removed Blur and Shiny Effects */}
       {selectedSector && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden bg-[#0B222E] border border-white/10">
             {/* Top accent line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
+            <div className="bg-[#0B222E] p-8 lg:p-12">
               <button 
                 onClick={() => setSelectedSector(null)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -240,7 +239,7 @@ const Sectors: React.FC<SectorsProps> = ({ onNavigate }) => {
                         setSelectedSector(null);
                         onNavigate(Page.Contact);
                     }}
-                    className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl"
+                    className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all"
                    >
                     Consultant Spreken
                    </button>

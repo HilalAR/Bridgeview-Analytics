@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { Icons } from '../constants';
@@ -30,7 +29,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       title: 'Power BI Dashboards',
       intro: 'Ontwikkeld door de experts van BridgeView Analytics. Verliest uw organisatie kostbare tijd aan het handmatig samenstellen van rapportages uit uiteenlopende databronnen?',
       moreTitle: 'Automatisering en Betrouwbaarheid',
-      moreContent: 'BridgeView Analytics biedt de definitieve oplossing. Met een op maat gemaakt Power BI Dashboard automatiseren wij deze tijdrovende processen, waardoor u direct ruimte creëert voor analyse en strategie in plaats van data-verwerking. Een Power BI Dashboard van BridgeView Analytics zorgt ervoor dat u niet langer afhankelijk bent van handmatige dataverzameling. Uw gegevens uit verschillende bronnen worden automatisch ververst and samengevoegd tot één helder overzicht. Dit minimaliseert de kans op menselijke fouten aanzienlijk en garandeert dat u beslissingen neemt op basis van een \'Single Source of Truth\'. Wij slaan de brug tussen uw ruwe data en feitelijk onderbouwde besluitvorming.',
+      moreContent: 'BridgeView Analytics biedt de definitieve oplossing. Met een op maat gemaakt Power BI Dashboard automatiseren wij deze tijdrovende processen, waardoor u direct ruimte creëert for analyse en strategie in plaats van data-verwerking. Een Power BI Dashboard van BridgeView Analytics zorgt ervoor dat u niet langer afhankelijk bent van handmatige dataverzameling. Uw gegevens uit verschillende bronnen worden automatisch ververst and samengevoegd tot één helder overzicht. Dit minimaliseert de kans op menselijke fouten aanzienlijk en garandeert dat u beslissingen neemt op basis van een \'Single Source of Truth\'. Wij slaan de brug tussen uw ruwe data en feitelijk onderbouwde besluitvorming.',
       extra: 'Inzichten die perfect aansluiten: Met onze diepgaande ervaring ontwikkelen wij overzichtelijke Power BI dashboards die naadloos aansluiten bij de specifieke behoeften van uw organisatie. Wij zorgen ervoor dat u precies die inzichten krijgt die nodig zijn om uw rendement te verhogen en uw processen te optimaliseren.'
     },
     {
@@ -62,7 +61,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <div className="inline-flex items-center gap-4 mb-8">
               <div className="w-8 h-px bg-bridgeview-amber"></div>
               <span className="text-[11px] uppercase tracking-[0.5em] text-bridgeview-amber font-bold">
-                Strategic Intelligence Partner
+                Uw partner in datagedreven groei
               </span>
             </div>
             
@@ -78,7 +77,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
                 onClick={() => onNavigate(Page.Contact)}
-                className="px-10 py-4 bg-bridgeview-amber text-bridgeview-dark font-bold text-[12px] uppercase tracking-widest hover:bg-white transition-all shadow-xl"
+                className="px-10 py-4 bg-bridgeview-amber text-bridgeview-dark font-bold text-[12px] uppercase tracking-widest hover:bg-white transition-all"
               >
                 Gesprek plannen
               </button>
@@ -159,13 +158,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div 
                 key={item.id} 
                 className={`sharp-card p-10 flex flex-col justify-between transition-all duration-500 bg-white/[0.02] border-white/10 hover:border-bridgeview-amber/30 hover:bg-white/[0.04] ${
-                  expandedExpertise === item.id ? 'lg:col-span-2 ring-1 ring-bridgeview-amber/20' : ''
+                  expandedExpertise === item.id ? 'lg:col-span-2' : ''
                 }`}
               >
                 <div>
                   <div className="flex items-center gap-5 mb-8">
                     <div className="w-12 h-12 flex items-center justify-center border border-bridgeview-amber/20 bg-bridgeview-amber/5 text-bridgeview-amber">
-                      {item.id === 'power-bi' ? <Icons.Data /> : item.id === 'datawarehouse' ? <Icons.Data /> : <Icons.Check />}
+                      {item.id === 'power-bi' ? <Icons.PowerBIModel /> : item.id === 'datawarehouse' ? <Icons.DataFoundation /> : item.id === 'dpia' ? <Icons.SecureAssurance /> : <Icons.Check />}
                     </div>
                     <h3 className="text-lg font-bold uppercase tracking-widest text-white leading-tight">
                       {item.title}
@@ -222,14 +221,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Demo Request Modal - Enhanced opacity and z-index */}
+      {/* Demo Request Modal - Removed Blur and Shiny Effects */}
       {isDemoModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/90 animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden border border-white/10 bg-[#0B222E]">
             {/* Top accent line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
+            <div className="p-8 lg:p-12">
               <button 
                 onClick={() => setIsDemoModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -250,7 +249,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   </p>
                   <button 
                     onClick={() => setIsDemoModalOpen(false)}
-                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
                   >
                     Sluiten
                   </button>
@@ -289,7 +288,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                       />
                     </div>
                     <div className="pt-4">
-                      <button className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98]">
+                      <button className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98]">
                         Versturen
                       </button>
                       <p className="text-[8px] text-center mt-5 text-slate-600 font-medium uppercase tracking-widest opacity-60">
@@ -312,7 +311,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </h2>
           <button 
             onClick={() => onNavigate(Page.Contact)}
-            className="px-12 py-5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[13px] uppercase tracking-[0.3em] hover:bg-white transition-all shadow-xl"
+            className="px-12 py-5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[13px] uppercase tracking-[0.3em] hover:bg-white transition-all"
           >
             Spreken met een Consultant
           </button>

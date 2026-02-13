@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Icons } from '../constants';
 import { Page } from '../types';
@@ -142,49 +141,49 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
       title: "Power BI Core",
       desc: "De centrale spil van uw data-ecosysteem. Wij integreren al uw bronnen tot één krachtig visueel instrument.",
       details: "Door ERP-systemen (SAP, Exact, MS Dynamics) te koppelen aan realtime cloud-data, bieden wij een fundament voor snelle en foutloze rapportage. Geen losse Excel-lijsten meer, maar één waarheid.",
-      icon: <Icons.Data />
+      icon: <Icons.Hub />
     },
     {
       id: "kpi",
       title: "KPI Performance",
       desc: "Realtime monitoring van uw meest kritieke operationele processen voor directe bijsturing.",
       details: "Inzicht in 'landed-cost', doorlooptijden in het magazijn en picking-efficiëntie. Met dit dashboard ziet u direct waar knelpunten ontstaan voordat ze uw marge aantasten.",
-      icon: <Icons.Strategy />
+      icon: <Icons.Gauge />
     },
     {
       id: "management",
       title: "Strategic Management",
       desc: "Een helikopterview voor de directie, van EBITDA tot marktpenetratie and strategische mijlpalen.",
       details: "Geen technische ruis, maar actiegerichte inzichten voor strategische besluitvorming. Volg de voortgang van uw jaarplannen en financiële gezondheid in één oogopslag.",
-      icon: <Icons.Strategy />
+      icon: <Icons.Vision />
     },
     {
       id: "financial",
       title: "Financial Insights",
       desc: "Maximale grip op uw cashflow, debiteurenposities en de werkelijke netto-marges per eenheid.",
       details: "Door financiële data te koppelen aan operationele kosten (logistiek, verpakking, retour), berekenen wij uw werkelijke winstgevendheid per product of klant.",
-      icon: <Icons.Data />
+      icon: <Icons.Wealth />
     },
     {
       id: "hr",
       title: "HR & Workforce",
       desc: "Inzicht in verzuim, personeelsverloop en de productiviteit per afdeling of shift.",
       details: "Optimaliseer uw personeelsbezetting op basis van historische data en voorspellingen. Verminder onnodige overhead en verhoog de betrokkenheid door meetbare prestaties.",
-      icon: <Icons.Check />
+      icon: <Icons.Team />
     },
     {
       id: "marketing",
       title: "Marketing ROI",
       desc: "Kwantificeerbare resultaten van uw campagnes en klantacquisitiekosten (CAC) per kanaal.",
       details: "Koppel marketinguitgaven direct aan conversies en lifetime value. Zo investeert u uitsluitend in kanalen die werkelijk bijdragen aan uw groei.",
-      icon: <Icons.Data />
+      icon: <Icons.Target />
     },
     {
       id: "sales",
       title: "Sales Funnel",
       desc: "Optimaliseer uw volledige conversieratio van lead tot order en identificeer kansen in de markt.",
       details: "Monitor de performance van uw salesteam en identificeer trends in klantgedrag. Voorspel toekomstige omzet met hogere nauwkeurigheid door data-gedreven forecasting.",
-      icon: <Icons.Strategy />
+      icon: <Icons.Funnel />
     }
   ];
 
@@ -201,7 +200,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         "Maak sneller datagedreven beslissingen",
         "Alle rapportages automatiseren en dagelijks laten verversen"
       ],
-      icon: <Icons.Strategy />
+      icon: <Icons.UserExpert />
     },
     {
       id: "datawarehouse",
@@ -217,23 +216,23 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         "Ontlast operationele systemen",
         "Sneller beslissingen maken en beter geïnformeerd zijn"
       ],
-      icon: <Icons.Data />
+      icon: <Icons.DataStack />
     },
     {
       id: "data-consultancy",
       title: "Data Consultancy",
-      desc: "Ontdek de verborgen waarde van uw data en breng structuur aan voor maximaal inzicht.",
+      desc: "Ontdek de verborgen waarde van uw data and breng structuur aan voor maximaal inzicht.",
       details: [
         "Ontdek de waarde van uw data met Data Consultancy",
         "Leer effectiever om te gaan met uw data opslag",
         "Breng structuur aan in uw data voor meer inzicht",
         "Krijg sneller inzicht en wees concurrentie voor",
-        "Leer welke tools u nodig heeft voor resultaat",
+        "Leer welke tools u nodig heeft for resultaat",
         "Maak informatie inzichtelijk wanneer u dat wilt",
         "Automatiseer handmatig werk",
         "Maak tijd vrij voor zaken die er écht toe doen"
       ],
-      icon: <Icons.Check />
+      icon: <Icons.InsightNodes />
     }
   ];
 
@@ -247,7 +246,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         "Bij ernstige tekortkomingen kan de AP het stilleggen van uw datasystemen eisen.",
         "Wij borgen 'Privacy by Design' bij de inrichting van uw nieuwe Data Warehouse of BI-omgeving."
       ],
-      icon: <Icons.Check />
+      icon: <Icons.Shield />
     },
     {
       id: "avg-compliance",
@@ -258,7 +257,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         "Wij identificeren blinde vlekken in uw data-opslag en verwerking.",
         "Elimineer het risico op datalekken voordat ze ontstaan."
       ],
-      icon: <Icons.Strategy />
+      icon: <Icons.Compliance />
     },
     {
       id: "data-quality",
@@ -280,7 +279,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         "Toetsing van uw BI-omgeving aan de strengste kaders (ISO 27001 / NEN 7510).",
         "Beveiliging van de cloud-architectuur (Azure) en toegangsbeheer op dashboard-niveau."
       ],
-      icon: <Icons.Check />
+      icon: <Icons.Lock />
     }
   ];
 
@@ -314,7 +313,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
               <div 
                 key={item.id} 
                 className={`sharp-card p-10 flex flex-col justify-between transition-all duration-500 bg-white/[0.02] border-white/10 hover:border-bridgeview-amber/30 hover:bg-white/[0.04] ${
-                  expandedId === item.id ? 'lg:col-span-2 border-bridgeview-amber/40 shadow-2xl' : ''
+                  expandedId === item.id ? 'lg:col-span-2 border-bridgeview-amber/40' : ''
                 }`}
               >
                 <div>
@@ -495,13 +494,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Dashboard Oplossingen Modal - Enhanced opacity and z-index */}
+      {/* Dashboard Oplossingen Modal - Removed Blur and Shiny Effects */}
       {isDashboardModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
+        <div className="fixed inset-0 z-[999999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden bg-[#0B222E] border border-white/10">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
+            <div className="bg-[#0B222E] p-8 lg:p-12">
               <button 
                 onClick={() => setIsDashboardModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -522,7 +521,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </p>
                   <button 
                     onClick={() => setIsDashboardModalOpen(false)}
-                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
                   >
                     Sluiten
                   </button>
@@ -583,7 +582,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                     <div className="pt-4">
                       <button 
                         disabled={isDashboardSubmitting}
-                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98] disabled:opacity-50"
                       >
                         {isDashboardSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
                       </button>
@@ -599,13 +598,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* Core Services (Diensten & Expertise) Modal - Enhanced opacity and z-index */}
+      {/* Core Services Modal - Removed Blur and Shiny Effects */}
       {isCoreModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
+        <div className="fixed inset-0 z-[999999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden bg-[#0B222E] border border-white/10">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
+            <div className="bg-[#0B222E] p-8 lg:p-12">
               <button 
                 onClick={() => setIsCoreModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -626,7 +625,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </p>
                   <button 
                     onClick={() => setIsCoreModalOpen(false)}
-                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
                   >
                     Sluiten
                   </button>
@@ -687,7 +686,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                     <div className="pt-4">
                       <button 
                         disabled={isCoreSubmitting}
-                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98] disabled:opacity-50"
                       >
                         {isCoreSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
                       </button>
@@ -703,13 +702,13 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* Governance Contact Modal - Enhanced opacity and z-index */}
+      {/* Governance Contact Modal - Removed Blur and Shiny Effects */}
       {isGovernanceModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-md overflow-hidden shadow-[0_0_50px_-12px_rgba(197,160,89,0.3)] max-h-[90vh] overflow-y-auto bg-[#0B222E]">
+        <div className="fixed inset-0 z-[999999] flex items-start justify-center p-4 sm:p-8 pt-24 sm:pt-32 bg-black/90 animate-in fade-in">
+          <div className="relative w-full max-w-md overflow-hidden bg-[#0B222E] border border-white/10">
             <div className="absolute top-0 left-0 right-0 h-1 bg-bridgeview-amber sticky z-20"></div>
             
-            <div className="bg-[#0B222E] border border-white/10 p-8 lg:p-12 opacity-100">
+            <div className="bg-[#0B222E] p-8 lg:p-12">
               <button 
                 onClick={() => setIsGovernanceModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-500 hover:text-white transition-all p-2 hover:bg-white/5"
@@ -730,7 +729,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                   </p>
                   <button 
                     onClick={() => setIsGovernanceModalOpen(false)}
-                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+                    className="px-8 py-3.5 bg-bridgeview-amber text-bridgeview-dark font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
                   >
                     Sluiten
                   </button>
@@ -792,7 +791,7 @@ const Dashboards: React.FC<DashboardsProps> = ({ onNavigate }) => {
                     <div className="pt-4">
                       <button 
                         disabled={isSubmitting}
-                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl active:scale-[0.98] disabled:opacity-50"
+                        className="w-full py-4 bg-bridgeview-amber text-bridgeview-dark font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98] disabled:opacity-50"
                       >
                         {isSubmitting ? 'Bezig met verzenden...' : 'Verzenden'}
                       </button>
